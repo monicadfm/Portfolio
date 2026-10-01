@@ -3,6 +3,7 @@ async function loadRepoCount() {
     try {
         const response = await fetch("https://api.github.com/users/monicadfm");
 
+        // On failure (e.g. rate limit) the HTML fallback number stays
         if (!response.ok) {
             return;
         }

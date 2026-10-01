@@ -1,4 +1,4 @@
-// Banner
+// Banner simulator (rates + pity match WishBound)
 const HARD_PITY = 90;
 
 const RARITIES = [
@@ -42,6 +42,7 @@ function roll(state) {
     let rarity;
 
     if (state.pity >= HARD_PITY) {
+        // Guaranteed Legendary/Mythic, keeps their 5:1 ratio
         rarity = Math.random() < 1 / 6 ? RARITIES[4] : RARITIES[3];
     } 
     else {
@@ -58,7 +59,7 @@ function roll(state) {
     };
 }
 
-// Test
+// Dev tool: run testRates(10000) in the console
 function testRates(pulls) {
     const state = { pity: 0, total: 0};
     const counts = {};
@@ -142,7 +143,7 @@ function showResults(results) {
 
     // Animation restart
     reveal.classList.remove("flash");
-    void reveal.offsetWidth;
+    void reveal.offsetWidth; // forces reflow so the animation replays
     reveal.classList.add("flash");
 
     renderPity();
@@ -174,7 +175,7 @@ function showResults(results) {
     status.textContent = "POST /api/banners/1/pull?count=" + results.length + " → 200 OK\n";
 
     log.textContent = "";
-    log.append(status, JSON.stringify(response, null, 2));
+    log.append(status, JSON.stringify(response, null, 2)); // strings added as text, not HTML
 }
 
 // Pulls count

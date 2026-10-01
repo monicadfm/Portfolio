@@ -8,6 +8,7 @@ copyButton.addEventListener("click", async function () {
         copyButton.textContent = "Copied!";
     }
     catch (error) {
+        // Clipboard blocked: select the text instead
         const range = document.createRange();
         range.selectNodeContents(emailAddress);
         window.getSelection().removeAllRanges();

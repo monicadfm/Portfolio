@@ -172,7 +172,7 @@ nav {
     flex-wrap: wrap;
     gap: 12px;
     padding-block: 14px;
-    padding-inline: max(20px, calc((100% - 1040px) / 2));
+    padding-inline: max(20px, calc((100% - 1040px) / 2)); /* aligns with content, min 20px */
     background: var(--bg);
     border-bottom: 1px solid var(--line);
 }
@@ -290,7 +290,7 @@ header p strong {
         color-mix(in srgb, var(--frontend) 22%, var(--surface)),
         var(--surface) 60%
     );
-    clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+    clip-path: inset(0 calc(100% - var(--pos)) 0 0); /* --pos set by slider.js */
 }
 
 .layer.api .p {
@@ -419,7 +419,7 @@ header p strong {
     width: 100%;
     height: 100%;
     margin: 0;
-    opacity: 0;
+    opacity: 0; /* invisible input, drag anywhere */
     cursor: ew-resize;
 }
 
@@ -473,7 +473,7 @@ header p strong {
     color: var(--text);
     font-weight: 600;
     text-decoration: none;
-    line-height: 20px;
+    line-height: 20px; /* whole-number height keeps text centred */
 }
 
 .btn svg {
@@ -672,7 +672,7 @@ button.btn {
 }
 
 .pull-buttons .btn {
-    transform: translateY(0);
+    transform: translateY(0); /* stops sub-pixel jump on hover */
     transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
@@ -806,6 +806,7 @@ button.btn {
 
 
 /* ===== Stack ===== */
+/* Each panel sets --c; square + chip hover use it */
 .side.backend {
     --c: var(--backend);
 }
@@ -885,7 +886,7 @@ a.card:hover {
     border: 1px solid var(--line);
     border-radius: 16px;
     transition: transform 0.2s, border-color 0.2s;
-    transform: translateY(0);
+    transform: translateY(0); /* stops sub-pixel jump on hover */
     backface-visibility: hidden;
 }
 

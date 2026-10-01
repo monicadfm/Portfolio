@@ -2,7 +2,7 @@
 
 My developer portfolio, built from scratch with HTML, CSS and vanilla JavaScript. No frameworks, no libraries.
 
-**Live site:** https://monicadfm.github.io/portfolio/
+**Live site:** https://monicadfm.github.io/Portfolio/
 
 ## Features
 

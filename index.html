@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Monica Moura, software developer in Portugal. Backend and frontend: C#, ASP.NET Core, SQL Server, JavaScript.">
     <title>Monica Moura</title>
     <link rel="stylesheet" href="css/style.css">
@@ -63,10 +64,10 @@ Content-Type: application/json</span>
     <span class="k">"role"</span>: <span class="s">"Software Developer"</span>,
     <span class="k">"lookingFor"</span>: [<span class="s">"backend"</span>, <span class="s">"frontend"</span>],
     <span class="k">"stack"</span>: [<span class="s">"C#"</span>, <span class="s">"ASP.NET Core"</span>, <span class="s">"SQL Server"</span>,
-        <span class="s">"JavaScript"</span>, <span class="s">".NET MAUI"</span>, <span class="s">"Python"</span>]
-    <span class="k">"studying"</span>: <span class="s">"CET TPSI @ CINEL"</span>
-    <span class="k">"location"</span>: <span class="s">"Felgueiras, Portugal"</span>
-    <span class="k">"publicRepos"</span>: <span class="n repo-count">"13"</span>
+        <span class="s">"JavaScript"</span>, <span class="s">".NET MAUI"</span>, <span class="s">"Python"</span>],
+    <span class="k">"studying"</span>: <span class="s">"CET TPSI @ CINEL"</span>,
+    <span class="k">"location"</span>: <span class="s">"Felgueiras, Portugal"</span>,
+    <span class="k">"publicRepos"</span>: <span class="n repo-count">13</span>
 }<span class="cursor">&nbsp;</span></pre>
                 </div>
 
@@ -104,22 +105,26 @@ Content-Type: application/json</span>
         </header>
 
         <section id="work">
-            <p>Featured project <span class="sep">·</span> Final course project 2026</p>
+            <p class="eyebrow">Featured project <span class="sep">·</span> Final course project 2026</p>
             <h2>WishBound</h2>
-            <p>
-                A web and mobile application platform for collecting virtual characters. Players pull from limited-time banners,
+            <p class="lede">
+                A web and mobile platform for collecting virtual characters. Players pull from limited-time banners,
                 build a collection, and grow friendship levels with their favourite characters.
+                I designed it end to end, from the ER model to the admin dashboard.
             </p>
 
             <div class="two-col">
+
+                <!-- LEFT: How it's built -->
                 <div class="panel">
                     <h3>How it's built</h3>
+                    <p class="what">A REST API serves two clients: a browser app and a native mobile app.</p>
                     <ul class="feats">
-                        <li><span class="tag api">api</span> ASP.NET Core Web API with pulls, a pity system, inventory, currencies and events</li>
-                        <li><span class="tag db">db</span> SQL Server database modelled from use-case, ER and class diagrams</li>
-                        <li><span class="tag api">api</span> Admin tools to manage accounts, with every action saved to an audit log</li>
-                        <li><span class="tag ui">ui</span> Web client in HTML, CSS, and JavaScript with a companion character on Home</li>
-                        <li><span class="tag ui">ui</span> .NET MAUI mobile app with daily rewards and push notifications</li>
+                        <li><span class="tag api">api</span><span>ASP.NET Core Web API with pulls, a pity system, inventory, currencies and events</span></li>
+                        <li><span class="tag db">db</span><span>SQL Server database modelled from use-case, ER and class diagrams</span></li>
+                        <li><span class="tag api">api</span><span>Admin tools to manage accounts, with every action saved to an audit log</span></li>
+                        <li><span class="tag ui">ui</span><span>Web client in HTML, CSS and JavaScript with a companion character on Home</span></li>
+                        <li><span class="tag ui">ui</span><span>.NET MAUI mobile app with daily rewards and push notifications</span></li>
                     </ul>
 
                     <div class="arch" aria-label="Web and mobile clients call the ASP.NET Core API, which uses SQL Server">
@@ -131,14 +136,20 @@ Content-Type: application/json</span>
                     </div>
                 </div>
 
+                <!-- RIGHT: Banner simulator -->
                 <div class="panel">
-                    <h3>Banner simulator</h3>
-                    <div id="banner-sim">
-                        <div class="pull-buttons">
-                            <button class="btn primary" id="pull1">Pull ×1</button>
-                            <button class="btn" id="pull10">Pull ×10</button>
+                    <div class="gacha-top">
+                        <div>
+                            <span class="eyebrow">Try the pull logic</span>
+                            <h3>Banner simulator</h3>
                         </div>
+                        <div class="pull-buttons">
+                            <button class="btn pull" id="pull1">Pull ×1</button>
+                            <button class="btn" id="pull10">×10</button>
+                        </div>
+                    </div>
 
+                    <div id="banner-sim">
                         <div class="reveal" id="reveal" aria-live="polite">
                             <p class="reveal-name" id="revealName">Ready</p>
                             <p class="reveal-sub" id="revealSub">Press pull to roll a character</p>
@@ -146,12 +157,13 @@ Content-Type: application/json</span>
 
                         <div class="pity">
                             <div class="pity-row">
-                                <span>Pity</span>
+                                <span>Pity counter</span>
                                 <span id="pityText"></span>
                             </div>
                             <div class="bar">
                                 <span id="pityBar"></span>
                             </div>
+                            <span>A Legendary or better is guaranteed by pull <span id="pityMax">90</span>.</span>
                         </div>
 
                         <ul class="odds" id="odds"></ul>
@@ -159,6 +171,7 @@ Content-Type: application/json</span>
                         <pre class="log" id="log">// API responses appear here</pre>
                     </div>
                 </div>
+
             </div>
         </section>
 

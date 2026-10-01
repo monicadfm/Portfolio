@@ -100,6 +100,8 @@ const oddsList = document.getElementById("odds");
 const historyList = document.getElementById("history");
 const log = document.getElementById("log");
 
+document.getElementById("pityMax").textContent = Hard_Pity;
+
 // Building odds
 function renderOdds() {
     for (const rarity of Rarities) {
@@ -166,7 +168,13 @@ function showResults(results) {
         pity: bannerState.pity,
         totalPulls: bannerState.total
     };
-    log.textContent = "POST /api/banners/1/pull?count=" + results.length + " → 200 OK\n" + JSON.stringify(response, null, 2);
+    
+    const status = document.createElement("span");
+    status.className = "ok";
+    status.textContent = "POST /api/banners/1/pull?count=" + results.length + " → 200 OK\n";
+
+    log.textContent = "";
+    log.append(status, JSON.stringify(response, null, 2));
 }
 
 // Pulls count

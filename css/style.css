@@ -82,6 +82,10 @@ h1 {
     font-weight: 800;
 }
 
+#work h2 {
+    font-size: clamp(44px, 8vw, 70px);
+}
+
 a {
     color: var(--backend);
 }
@@ -198,6 +202,7 @@ header p strong {
     color: var(--text);
     font-weight: 600;
     text-decoration: none;
+    line-height: 20px;
 }
 
 .btn svg {
@@ -214,6 +219,18 @@ header p strong {
 .btn.primary {
     background: var(--text);
     color: var(--bg);
+}
+
+.btn.pull {
+    background: var(--frontend);
+    border-color: var(--frontend);
+    color: #fffefc;
+}
+
+.btn.pull:hover {
+    color: #fffefc;
+    background: color-mix(in srgb, var(--frontend) 85%, white);
+    border-color: color-mix(in srgb, var(--frontend) 85%, white);
 }
 
 /* Columns and Panels */
@@ -233,6 +250,20 @@ header p strong {
 
 .panel h3 {
     margin-top: 0;
+}
+
+.panel > h3 {
+    font-size: 34px;
+    margin-bottom: 0;
+}
+
+.panel > .chips {
+    margin-top: 12px;
+}
+
+.panel .what {
+    margin: 6px 0 20px;
+    color: var(--muted);
 }
 
 /* Chips */
@@ -548,10 +579,16 @@ footer {
     margin-bottom: 24px;
 }
 
+.feats li {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 10px;
+    align-items: baseline;
+}
+
 .tag {
     display: inline-block;
     min-width: 36px;
-    margin-right: 6px;
     padding: 2px 7px;
     border-radius: 6px;
     font-family: var(--font-mono);
@@ -624,6 +661,24 @@ button.btn {
     gap: 8px;
 }
 
+.pull-buttons .btn {
+    transform: translateY(0);
+    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.pull-buttons .btn:hover {
+    transform: translateY(-3px);
+}
+
+.pull-buttons .btn:not(.pull):hover {
+    border-color: var(--line);
+    background: var(--buttons);
+}
+
+.pull-buttons .btn:active {
+    transform: translateY(1px);
+}
+
 .reveal {
     display: grid;
     place-content: center;
@@ -660,7 +715,7 @@ button.btn {
 .pity {
     display: grid;
     gap: 6px;
-    font-size: 13px;
+    font-size: 15px;
     color: var(--muted);
 }
 
@@ -735,6 +790,10 @@ button.btn {
     color: var(--muted);
 }
 
+.log .ok {
+    color: var(--backend);
+}
+
 :focus-visible {
     outline: 2px solid var(--backend);
     outline-offset: 3px;
@@ -744,4 +803,25 @@ button.btn {
 .sep {
     margin-inline: 0.4em;
     color: var(--muted);
+}
+
+.lede {
+    max-width: 62ch;
+    margin-bottom: 32px;
+    font-size: 18px;
+    color: var(--muted);
+}
+
+.gacha-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.gacha-top h3 {
+    margin: 4px 0 0;
+    font-size: 24px;
 }

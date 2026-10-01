@@ -355,10 +355,19 @@ a.card:hover {
 
 /* Footer */
 footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
     padding-block: 24px 48px;
     border-top: 1px solid var(--line);
     color: var(--muted);
+    font-family: var(--font-mono);
     font-size: 14px;
+}
+
+footer p {
+    margin: 0;
 }
 
 /* Phones and small tablets */
@@ -922,4 +931,22 @@ button.btn {
 .side .chips li:hover {
     border-color: var(--c);
     transform: translateY(-2px);
+}
+
+/* Contact */
+#contact {
+    padding-block: 72px;
+}
+
+#contact h2 {
+    font-size: clamp(44px, 8vw, 88px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 14ch;
+    text-wrap: balance;
+}
+
+#contact .lede {
+    font-size: 20px;
+    max-width: 48ch;
 }

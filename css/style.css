@@ -952,6 +952,30 @@ a.card:hover {
     max-width: 48ch;
 }
 
+.email-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.copy-btn {
+    padding: 4px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    border-color: var(--frontend);
+}
 
 /* ===== Footer ===== */
 footer {

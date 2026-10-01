@@ -684,7 +684,7 @@ button.btn {
     place-content: center;
     height: 150px;
     text-align: center;
-    background: var(--bg);
+    background: #3b3b43;
     border: 1px solid var(--line);
     border-radius: 14px;
 }
@@ -824,4 +824,59 @@ button.btn {
 .gacha-top h3 {
     margin: 4px 0 0;
     font-size: 24px;
+}
+
+/* Stack */
+
+.side.backend {
+    --c: var(--backend);
+}
+
+.side.frontend {
+    --c: var(--frontend);
+}
+
+.side h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.side h3::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: var(--c);
+}
+
+.side .chips li {
+    background: #3b3b43;
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.also {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.also .chips {
+    margin: 0;
+}
+
+.also .chips li {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--surface);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.side .chips li:hover {
+    border-color: var(--c);
+    transform: translateY(-2px);
 }

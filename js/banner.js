@@ -87,3 +87,105 @@ function testRates(pulls) {
     console.table(percentages);
     console.log("Longest wait for Legendary+:", longestWait, "pulls");
 }
+
+// UI
+const bannerState = { pity: 0, total: 0 };
+
+const reveal = document.getElementById("reveal");
+const revealName = document.getElementById("revealName");
+const revealSub = document.getElementById("revealSub");
+const pityText = document.getElementById("pityText");
+const pityBar = document.getElementById("pityBar");
+const oddsList = document.getElementById("odds");
+const historyList = document.getElementById("history");
+const log = document.getElementById("log");
+
+// Building odds
+function renderOdds() {
+    for (const rarity of Rarities) {
+        const li = document.createElement("li");
+        li.textContent = rarity.name + " " + rarity.weight + "%";
+        li.style.setProperty("--c", "var(" + rarity.color + ")");
+        oddsList.appendChild(li);
+    }
+}
+
+// Update pity text and bar
+function renderPity() {
+    pityText.textContent = bannerState.pity + "/" + Hard_Pity;
+    pityBar.style.width = (bannerState.pity / Hard_Pity * 100) + "%";
+}
+
+// Results list
+function bestOf(results) {
+    let best = results[0];
+    for (const result of results) {
+        if (Rarities.indexOf(result.rarity) > Rarities.indexOf(best.rarity)) {
+            best = result;
+        }
+    }
+    return best;
+}
+
+// Results
+function showResults(results) {
+    const best = bestOf(results);
+    const color = "var(" + best.rarity.color + ")";
+
+    // Box
+    revealName.textContent = best.character;
+    revealName.style.color = color;
+    revealSub.textContent = results.length > 1 ? "Best of " + results.length + " · " + best.rarity.name : best.rarity.name;
+    reveal.style.borderColor = color;
+
+    // Animation restart
+    reveal.classList.remove("flash");
+    void reveal.offsetWidth;
+    reveal.classList.add("flash");
+
+    renderPity();
+
+    // History, max 40
+    for (const result of results) {
+        const square = document.createElement("span");
+        square.style.background = "var(" + result.rarity.color + ")";
+        square.title = result.character + " (" + result.rarity.name + ")";
+        historyList.prepend(square);
+    }
+    while (historyList.children.length > 40) {
+        historyList.lastChild.remove();
+    }
+
+    // Fake API response
+    const response = {
+        pulls: results.map(function (r) {
+            return {
+                character: r.character, rarity: r.rarity.name
+            };
+        }),
+        pity: bannerState.pity,
+        totalPulls: bannerState.total
+    };
+    log.textContent = "POST /api/banners/1/pull?count=" + results.length + " → 200 OK\n" + JSON.stringify(response, null, 2);
+}
+
+// Pulls count
+function pull(count) {
+    const results = [];
+    for (let i = 0; i < count; i++) {
+        results.push(roll(bannerState));
+    }
+    showResults(results);
+}
+
+//Buttons
+document.getElementById("pull1").addEventListener("click", function () {
+    pull(1);
+});
+
+document.getElementById("pull10").addEventListener("click", function () {
+    pull(10);
+});
+
+renderOdds();
+renderPity();

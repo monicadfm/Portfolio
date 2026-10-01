@@ -28,27 +28,27 @@
             <h1>Monica<br><span class="split">Moura</span></h1>
             <p>
                 I build both sides of the app: the interface people click on and the API and database underneath it.
-                In my final stages of completing the CET in Programming and Information Systems (TPSI) at CINEL.
+                I'm in the final stages of the CET in Programming and Information Systems (TPSI) at CINEL.
             </p>
             
             <div class="links">
-                <a href="#work">See my work</a>
-                <a href="https://github.com/monicadfm" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://www.linkedin.com/in/monica-moura-1a0256221/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="#work" class="btn primary">See my work</a>
+                <a href="https://github.com/monicadfm" target="_blank" rel="noopener" class="btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/monica-moura-1a0256221/" target="_blank" rel="noopener" class="btn">LinkedIn</a>
             </div>
 
             <div class="compare" id="compare">
                 <div class="layer api">
-            <pre>GET /api/developers/me
-            200 OK
-            {   
-                "name": "Monica Moura",
-                "role": "Software Developer",
-                "lookingFor": ["backend", "frontend"],
-                "stack": ["C#", "ASP.NET Core", "SQL Server", "JavaScript", ".NET MAUI", "Python"],
-                "studying": "CET TPSI @ CINEL",
-                "location": "Felgueiras, Portugal"
-            }</pre>
+<pre>GET /api/developers/me
+200 OK
+{   
+    "name": "Monica Moura",
+    "role": "Software Developer",
+    "lookingFor": ["backend", "frontend"],
+    "stack": ["C#", "ASP.NET Core", "SQL Server", "JavaScript", ".NET MAUI", "Python"],
+    "studying": "CET TPSI @ CINEL",
+    "location": "Felgueiras, Portugal"
+}</pre>
                 </div>
 
                 <div class="layer ui">
@@ -84,26 +84,48 @@
                 <div class="panel">
                     <h3>How it's built</h3>
                     <ul class="feats">
-                        <li><span class="tag api">api</span> Core Web API with pulls, a pity system, inventory, currencies and events</li>
-                        <li><span class="tag db">db</span> SQL Server database modelled from user-case, ER and class diagrams</li>
+                        <li><span class="tag api">api</span> ASP.NET Core Web API with pulls, a pity system, inventory, currencies and events</li>
+                        <li><span class="tag db">db</span> SQL Server database modelled from use-case, ER and class diagrams</li>
                         <li><span class="tag api">api</span> Admin tools to manage accounts, with every action saved to an audit log</li>
                         <li><span class="tag ui">ui</span> Web client in HTML, CSS, and JavaScript with a companion character on Home</li>
                         <li><span class="tag ui">ui</span> .NET MAUI mobile app with daily rewards and push notifications</li>
                     </ul>
 
                     <div class="arch" aria-label="Web and mobile clients call the ASP.NET Core API, which uses SQL Server">
-                        <div class="node ui"><b>Client</b><br>Web · MAUI</div>
+                        <div class="node ui"><b>Client</b>Web · MAUI</div>
                         <span class="arrow">→</span>
-                        <div class="node api"><b>Web API</b><br>ASP.NET Core</div>
+                        <div class="node api"><b>Web API</b>ASP.NET Core</div>
                         <span class="arrow">→</span>
-                        <div class="node db"><b>Database</b><br>SQL Server</div>
+                        <div class="node db"><b>Database</b>SQL Server</div>
                     </div>
                 </div>
 
                 <div class="panel">
                     <h3>Banner simulator</h3>
                     <div id="banner-sim">
-                        <!-- future implementation -->
+                        <div class="pull-buttons">
+                            <button class="btn primary" id="pull1">Pull ×1</button>
+                            <button class="btn" id="pull10">Pull ×10</button>
+                        </div>
+
+                        <div class="reveal" id="reveal" aria-live="polite">
+                            <p class="reveal-name" id="revealName">Ready</p>
+                            <p class="reveal-sub" id="revealSub">Press pull to roll a character</p>
+                        </div>
+
+                        <div class="pity">
+                            <div class="pity-row">
+                                <span>Pity</span>
+                                <span id="pityText"></span>
+                            </div>
+                            <div class="bar">
+                                <span id="pityBar"></span>
+                            </div>
+                        </div>
+
+                        <ul class="odds" id="odds"></ul>
+                        <div class="history" id="history" aria-label="Pull history"></div>
+                        <pre class="log" id="log">// API responses appear here</pre>
                     </div>
                 </div>
             </div>
@@ -202,7 +224,7 @@
 
             <p>
                 Email:
-                <a href="mailto:miamonicamoura@gmail.com?subject=Portfolio%20Contact" target="_blank" rel="noopener">miamonicamoura@gmail.com</a>
+                <a href="mailto:miamonicamoura@gmail.com?subject=Portfolio%20Contact">miamonicamoura@gmail.com</a>
             </p>
 
             <div class="links">

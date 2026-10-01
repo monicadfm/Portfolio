@@ -1,4 +1,63 @@
+/* Design tokens */
+:root {
+
+    /* Colors dark mode */
+    --bg: #252529;
+    --surface: #2e2e33;
+    --line: #47474f;
+    --text: #fffefc;
+    --muted: #ababb4;
+    --frontend: #e125af;
+    --backend: #4d9aea;
+
+    /* Fonts */
+    --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
+    --font-body: "Instrument Sans", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", Consolas, monospace;
+
+    color-scheme: dark;
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #fffefc;
+        --surface: #f6f5f2;
+        --line: #deddd8;
+        --text: #252529;
+        --muted: #5f5f68;
+
+        color-scheme: light;
+    }
+}
+
+/* Global styles */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    background: #252529;
-    color: #fffefc;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.1;
+}
+
+h1 {
+    font-weight: 800;
+}
+
+a {
+    color: var(--backend);
+}
+
+a:hover {
+    color: var(--frontend);
 }

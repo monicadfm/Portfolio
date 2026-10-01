@@ -34,12 +34,24 @@
         --line: #deddd8;
         --text: #252529;
         --muted: #5f5f68;
+        --frontend: #c0228f;
+        --backend: #2a6fbd;
 
         /* Rarity colors */
         --r-common: #6e6e78;
         --r-legend: #b57c00;
 
         color-scheme: light;
+    }
+}
+
+/* Reduce motion mode */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
     }
 }
 
@@ -104,10 +116,19 @@ nav {
 }
 
 nav > a {
+    .logo-
     font-family: var(--font-mono);
     font-weight: 600;
     text-decoration: none;
     color: var(--text);
+}
+
+.logo-front { 
+    color: var(--frontend); 
+}
+
+.logo-back  { 
+    color: var(--backend); 
 }
 
 nav ul {
@@ -226,6 +247,12 @@ header p {
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: 16px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--frontend);
 }
 
 .card h3 {
@@ -269,15 +296,10 @@ footer {
     --pos: 50%;
     position: relative;
     min-height: 420px;
-    margin-top: 40px;
+    margin-top: 0;
     border: 1px solid var(--line);
     border-radius: 18px;
     overflow: hidden;
-}
-
-.compare:focus-within {
-    outline: 2px solid var(--backend);
-    outline-offset: 4px;
 }
 
 .layer {
@@ -355,6 +377,60 @@ footer {
     margin: 0;
     opacity: 0;
     cursor: ew-resize;
+}
+
+.compare-head {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 40px;
+    margin-bottom: 12px;
+}
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.tag-front {
+    color: var(--frontend);
+}
+
+.tag-back {
+    color: var(--backend);
+}
+
+.handle::after {
+    content: "↔";
+    position: absolute;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--text);
+    color: var(--bg);
+    line-height: 1;
+    font-size: 20px;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s;
+}
+
+.compare:hover .handle::after {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.compare:has(input:focus-visible) .handle::after {
+    outline: 3px solid var(--backend);
+    outline-offset: 3px;
 }
 
 /* Wishbound */
@@ -550,5 +626,16 @@ button.btn {
     border-radius: 12px;
     font-family: var(--font-mono);
     font-size: 12px;
+    color: var(--muted);
+}
+
+:focus-visible {
+    outline: 2px solid var(--backendq);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.sep {
+    margin-inline: 0.4em;
     color: var(--muted);
 }

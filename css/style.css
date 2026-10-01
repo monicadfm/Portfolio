@@ -33,6 +33,8 @@
     :root {
         --bg: #fffefc;
         --surface: #f6f5f2;
+        --website: #f3f2ee;
+        --buttons: #ecebe7;
         --line: #deddd8;
         --text: #252529;
         --muted: #5f5f68;
@@ -118,7 +120,6 @@ nav {
 }
 
 nav > a {
-    .logo-
     font-family: var(--font-mono);
     font-weight: 600;
     text-decoration: none;
@@ -314,7 +315,11 @@ footer {
 }
 
 .layer.api {
-    background: var(--surface);
+    background: radial-gradient(
+        120% 90% at 100% 100%,
+        color-mix(in srgb, var(--backend) 22%, var(--surface)),
+        var(--surface) 60%
+    );
 }
 
 .layer.api pre {
@@ -322,7 +327,7 @@ footer {
     font-family: var(--font-mono);
     font-size: 13px;
     line-height: 1.6;
-    color: var(--backend);
+    color: var(--text);
     overflow: auto;
 }
 
@@ -333,6 +338,37 @@ footer {
         var(--surface) 60%
     );
     clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+}
+
+.layer.api .p {
+    color: var(--backend);
+}
+
+.layer.api .c {
+    color: var(--muted);
+}
+
+.layer.api .k {
+    color: var(--backend);
+}
+
+.layer.api .s {
+    color: var(--frontend);
+}
+
+.layer.api .n {
+    color: var(--database);
+}
+
+.cursor {
+    display: inline-block;
+    width: 0.6em;
+    background: var(--backend);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {opacity: 0; }
 }
 
 .profile-card {
@@ -463,7 +499,7 @@ footer {
     content: "↔";
     position: absolute;
     top: 50%;
-    bottom: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
@@ -473,10 +509,11 @@ footer {
     background: var(--text);
     color: var(--bg);
     line-height: 1;
-    font-size: 2px;
+    font-size: 22px;
     font-weight: 700;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     transition: transform 0.15s;
+    will-change: transform;
 }
 
 .compare:hover .handle::after {
@@ -685,7 +722,7 @@ button.btn {
 }
 
 :focus-visible {
-    outline: 2px solid var(--backendq);
+    outline: 2px solid var(--backend);
     outline-offset: 3px;
     border-radius: 6px;
 }

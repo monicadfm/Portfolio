@@ -48,17 +48,20 @@
             
             <div class="compare" id="compare">
                 <div class="layer api">
-<pre>GET /api/developers/me
-200 OK
-{   
-    "name": "Monica Moura",
-    "role": "Software Developer",
-    "lookingFor": ["backend", "frontend"],
-    "stack": ["C#", "ASP.NET Core", "SQL Server", "JavaScript", ".NET MAUI", "Python"],
-    "studying": "CET TPSI @ CINEL",
-    "location": "Felgueiras, Portugal",
-    "publicRepos": <span class="repo-count">13</span>
-}</pre>
+    <!-- k = key, s = string, n = number, p = prompt, c = comments/headers -->
+<pre><span class="p">$</span> curl api.monica.dev/developers/me 
+<span class="c">HTTP/1.1 200 OK
+Content-Type: application/json</span>
+{
+    <span class="k">"name"</span>: <span class="s">"Monica Moura"</span>,
+    <span class="k">"role"</span>: <span class="s">"Software Developer"</span>,
+    <span class="k">"lookingFor"</span>: [<span class="s">"backend"</span>, <span class="s">"frontend"</span>],
+    <span class="k">"stack"</span>: [<span class="s">"C#"</span>, <span class="s">"ASP.NET Core"</span>, <span class="s">"SQL Server"</span>,
+        <span class="s">"JavaScript"</span>, <span class="s">".NET MAUI"</span>, <span class="s">"Python"</span>]
+    <span class="k">"studying"</span>: <span class="s">"CET TPSI @ CINEL"</span>
+    <span class="k">"location"</span>: <span class="s">"Felgueiras, Portugal"</span>
+    <span class="k">"publicRepos"</span>: <span class="n repo-count">"13"</span>
+}<span class="cursor">&nbsp;</span></pre>
                 </div>
 
                 <div class="layer ui">

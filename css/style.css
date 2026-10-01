@@ -2,8 +2,10 @@
 :root {
 
     /* Colors dark mode */
+    --website: #1f1f22;
     --bg: #252529;
     --surface: #2e2e33;
+    --buttons: #34343a;
     --line: #47474f;
     --text: #fffefc;
     --muted: #ababb4;
@@ -62,7 +64,7 @@
 
 body {
     margin: 0;
-    background: var(--bg);
+    background: var(--website);
     color: var(--text);
     font-family: var(--font-body);
     font-size: 17px;
@@ -325,25 +327,78 @@ footer {
 }
 
 .layer.ui {
-    background: var(--bg);
+    background: radial-gradient(
+        120% 90% at 0% 0%,
+        color-mix(in srgb, var(--frontend) 22%, var(--surface)),
+        var(--surface) 60%
+    );
     clip-path: inset(0 calc(100% - var(--pos)) 0 0);
 }
 
 .profile-card {
+    display: grid;
+    gap: 14px;
     width: min(340px, 100%);
     padding: 24px;
-    background: var(--surface);
+    background: var(--bg);
+    box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.45);
     border: 1px solid var(--line);
     border-radius: 16px;
 }
 
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
 .profile-card h3 {
-    margin-block: 12px 4px;
+    margin-block: 0;
+    font-size: 24px;
 }
 
 .profile-card p {
     margin: 0;
     color: var(--muted);
+}
+
+.profile-card .sub {
+    font-size: 14px;
+}
+
+.profile-card .chips {
+    margin: 0;
+    gap: 6px;
+}
+
+.profile-card .chips li {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--buttons);
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.profile-card .status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--backend);
+    animation: ping 2s infinite;
+}
+
+@keyframes ping {
+    0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--backend) 60%, transparent); }
+    70% { box-shadow: 0 0 0 8px transparent; }
+    100% { box-shadow: 0 0 0 0 transparent; }
 }
 
 .avatar {
@@ -352,7 +407,7 @@ footer {
     width: 56px;
     height: 56px;
     border-radius: 14px;
-    background: var(--frontend);
+    background: conic-gradient(from 200deg, var(--frontend), var(--database), var(--backend), var(--frontend));
     color: #fffefc;
     font-family: var(--font-display);
     font-weight: 800;
@@ -418,7 +473,7 @@ footer {
     background: var(--text);
     color: var(--bg);
     line-height: 1;
-    font-size: 20px;
+    font-size: 2px;
     font-weight: 700;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     transition: transform 0.15s;

@@ -307,6 +307,8 @@ a.card:hover {
     border: 1px solid var(--line);
     border-radius: 16px;
     transition: transform 0.2s, border-color 0.2s;
+    transform: translateY(0);
+    backface-visibility: hidden;
 }
 
 .card:hover {
@@ -343,8 +345,9 @@ a.card:hover {
 
 .lang::before {
     content: "";
-    width: 9px;
-    height: 9px;
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
     border-radius: 50%;
     background: var(--lang, #3572a5);
 }

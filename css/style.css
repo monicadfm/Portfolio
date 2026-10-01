@@ -61,3 +61,172 @@ a {
 a:hover {
     color: var(--frontend);
 }
+
+/* Page layout */
+main,
+footer {
+    max-width: 1000px;
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+section {
+    padding-block: 56px;
+    border-top: 1px solid var(--line);
+}
+
+/* Navigation */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-block: 14px;
+    padding-inline: max(20px, calc((100% - 1040px) / 2));
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+}
+
+nav > a {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+}
+
+nav ul a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+nav ul a:hover {
+    color: var(--text);
+}
+
+/* Headers */
+h1 {
+    font-size: clamp(52px, 10vw, 112px);
+    letter-spacing: -0.03em;
+    margin-block: 12px 20px;
+}
+
+h2 {
+    font-size: clamp(34px, 5vw, 54px);
+    letter-spacing: -0.02em;
+    margin-block: 8px 16px;
+}
+
+/* Hero */
+header {
+    padding-block: 64px 48px;
+}
+
+header p {
+    max-width: 45ch;
+    color: var(--muted);
+}
+
+/* Buttons */
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 18px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn:hover {
+    border-color: var(--text);
+    color: var(--text);
+}
+
+.btn.primary {
+    background: var(--text);
+    color: var(--bg);
+}
+
+/* Columns and Panels */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.panel {
+    min-width: 0;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+}
+
+.panel h3 {
+    margin-top: 0;
+}
+
+/* Chips */
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+}
+
+.chips li {
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+/* Project cards */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card p {
+    color : var(--muted);
+}
+
+/* Footer */
+footer {
+    padding-block: 24px 48px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Phones and small tablets */
+@media (max-width: 760px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}

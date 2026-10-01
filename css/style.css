@@ -131,7 +131,6 @@ section {
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--muted);
-    max-width: none;
 }
 
 .lede {
@@ -218,6 +217,10 @@ header {
 header p {
     max-width: 45ch;
     color: var(--muted);
+}
+
+header .eyebrow {
+    max-width: none;
 }
 
 header p strong {

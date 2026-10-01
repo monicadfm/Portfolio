@@ -1,7 +1,7 @@
 // Banner
-const Hard_Pity = 90;
+const HARD_PITY = 90;
 
-const Rarities = [
+const RARITIES = [
     { name: "Common",    weight: 55,  color: "--r-common", characters: ["Nix", "Bram"] },
     { name: "Rare",      weight: 30,  color: "--r-rare",   characters: ["Luna", "Kaito"] },
     { name: "Epic",      weight: 12,  color: "--r-epic",   characters: ["Aurora", "Draven"] },
@@ -24,14 +24,14 @@ function isHighRarity(rarity) {
 function pickRarity() {
     let roll = Math.random() * 100;
 
-    for (const rarity of Rarities) {
+    for (const rarity of RARITIES) {
         if (roll < rarity.weight) { 
             return rarity; 
         }
         roll -= rarity.weight;
     }
 
-    return Rarities[0]; // Fallback
+    return RARITIES[0]; // Fallback
 }
 
 // Pull system
@@ -41,8 +41,8 @@ function roll(state) {
 
     let rarity;
 
-    if (state.pity >= Hard_Pity) {
-        rarity = Math.random() < 1 / 6 ? Rarities[4] : Rarities[3];
+    if (state.pity >= HARD_PITY) {
+        rarity = Math.random() < 1 / 6 ? RARITIES[4] : RARITIES[3];
     } 
     else {
         rarity = pickRarity();
@@ -79,7 +79,7 @@ function testRates(pulls) {
     }
 
     const percentages = {};
-    for (const rarity of Rarities) {
+    for (const rarity of RARITIES) {
         const count = counts[rarity.name] || 0;
         percentages[rarity.name] = (count / pulls * 100).toFixed(2) + "%";
     }
@@ -100,11 +100,11 @@ const oddsList = document.getElementById("odds");
 const historyList = document.getElementById("history");
 const log = document.getElementById("log");
 
-document.getElementById("pityMax").textContent = Hard_Pity;
+document.getElementById("pityMax").textContent = HARD_PITY;
 
 // Building odds
 function renderOdds() {
-    for (const rarity of Rarities) {
+    for (const rarity of RARITIES) {
         const li = document.createElement("li");
         li.textContent = rarity.name + " " + rarity.weight + "%";
         li.style.setProperty("--c", "var(" + rarity.color + ")");
@@ -114,15 +114,15 @@ function renderOdds() {
 
 // Update pity text and bar
 function renderPity() {
-    pityText.textContent = bannerState.pity + "/" + Hard_Pity;
-    pityBar.style.width = (bannerState.pity / Hard_Pity * 100) + "%";
+    pityText.textContent = bannerState.pity + "/" + HARD_PITY;
+    pityBar.style.width = (bannerState.pity / HARD_PITY * 100) + "%";
 }
 
 // Results list
 function bestOf(results) {
     let best = results[0];
     for (const result of results) {
-        if (Rarities.indexOf(result.rarity) > Rarities.indexOf(best.rarity)) {
+        if (RARITIES.indexOf(result.rarity) > RARITIES.indexOf(best.rarity)) {
             best = result;
         }
     }
@@ -168,7 +168,7 @@ function showResults(results) {
         pity: bannerState.pity,
         totalPulls: bannerState.total
     };
-    
+
     const status = document.createElement("span");
     status.className = "ok";
     status.textContent = "POST /api/banners/1/pull?count=" + results.length + " → 200 OK\n";

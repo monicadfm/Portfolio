@@ -289,6 +289,18 @@ header p strong {
     gap: 16px;
 }
 
+a.card {
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    color: var(--text);
+    text-decoration: none;
+}
+
+a.card:hover {
+    color: var(--text);
+}
+
 .card {
     padding: 22px;
     background: var(--surface);
@@ -304,10 +316,41 @@ header p strong {
 
 .card h3 {
     margin-top: 0;
+    margin: 0;
+    font-size: 26px;
 }
 
 .card p {
     color : var(--muted);
+    margin: 0;
+    font-size: 15px;
+}
+
+.proj-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.lang {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.lang::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--lang, #3572a5);
+}
+
+.lang.js {
+    --lang: #f1e05a;
 }
 
 /* Footer */

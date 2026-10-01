@@ -24,7 +24,7 @@
     <main id="top">
 
         <header>
-            <p>Software developer · Porto, Portugal</p>
+            <p>Software developer · Felgueiras, Portugal</p>
             <h1>Monica<br><span class="split">Moura</span></h1>
             <p>
                 I build both sides of the app: the interface people click on and the API and database underneath it.
@@ -35,6 +35,40 @@
                 <a href="#work">See my work</a>
                 <a href="https://github.com/monicadfm" target="_blank" rel="noopener">GitHub</a>
                 <a href="https://www.linkedin.com/in/monica-moura-1a0256221/" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+
+            <div class="compare" id="compare">
+                <div class="layer api">
+            <pre>GET /api/developers/me
+            200 OK
+            {   
+                "name": "Monica Moura",
+                "role": "Software Developer",
+                "lookingFor": ["backend", "frontend"],
+                "stack": ["C#", "ASP.NET Core", "SQL Server", "JavaScript", ".NET MAUI", "Python"],
+                "studying": "CET TPSI @ CINEL",
+                "location": "Felgueiras, Portugal"
+            }</pre>
+                </div>
+
+                <div class="layer ui">
+                    <div class="profile-card">
+                        <div class="avatar">MM</div>
+                        <h3>Monica Moura</h3>
+                        <p>Software Developer · Felgueiras</p>
+                        <ul class="chips">
+                            <li>C#</li>
+                            <li>ASP.NET Core</li>
+                            <li>SQL Server</li>
+                            <li>JavaScript</li>
+                            <li>.NET MAUI</li>
+                            <li>Python</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="handle"></div>
+                <input type="range" id="compare-slider" min="0" max="100" value="50" aria-label="Slide between frontend and backend view">
             </div>
         </header>
 

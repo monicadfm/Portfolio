@@ -230,3 +230,16 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+/* Name split: half frontend, half backend */
+.split {
+    --split: 50%;
+    background: linear-gradient(
+        90deg,
+        var(--frontend) var(--split),
+        var(--backend) var(--split)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

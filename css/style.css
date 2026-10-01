@@ -9,6 +9,7 @@
     --muted: #ababb4;
     --frontend: #e125af;
     --backend: #4d9aea;
+    --database: #a57bf0;
 
     /* Fonts */
     --font-display: "Bricolage Grotesque", "Segoe UI", sans-serif;
@@ -331,4 +332,72 @@ footer {
     margin: 0;
     opacity: 0;
     cursor: ew-resize;
+}
+
+/* Wishbound */
+.feats {
+    display: grid;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.tag {
+    display: inline-block;
+    min-width: 36px;
+    margin-right: 6px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tag.ui { color: var(--frontend); background: color-mix(in srgb, var(--frontend) 18%, transparent); }
+.tag.api { color: var(--backend); background: color-mix(in srgb, var(--backend) 18%, transparent); }
+.tag.db { color: var(--database); background: color-mix(in srgb, var(--database) 18%, transparent); }
+
+/* Architecture */
+.arch {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+}
+
+.node {
+    display: grid;
+    gap: 4px;
+    padding: 12px;
+    border: 1px dashed var(--line);
+    border-radius: 12px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.node b {
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.node.ui b { color: var(--frontend) }
+.node.api b { color: var(--backend) }
+.node.db b { color: var(--database) }
+
+.arrow {
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+
+/* Phone Screen */
+@media (max-width: 520px) {
+    .arch {
+        grid-template-columns: 1fr;
+    }
+    .arrow {
+        justify-self: center;
+        transform: rotate(90deg);
+    }
 }

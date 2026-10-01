@@ -83,13 +83,21 @@
             <div class="two-col">
                 <div class="panel">
                     <h3>How it's built</h3>
-                    <ul>
-                        <li>ASP.NET Core Web API with pulls, a pity system, inventory, currencies and events</li>
-                        <li>SQL Server database modelled from user-case, ER and class diagrams</li>
-                        <li>Admin tools to manage accounts, with every action saved to an audit log</li>
-                        <li>Web client in HTML, CSS, and JavaScript with a companion character on Home</li>
-                        <li>.NET MAUI mobile app with daily rewards and push notifications</li>
+                    <ul class="feats">
+                        <li><span class="tag api">api</span> Core Web API with pulls, a pity system, inventory, currencies and events</li>
+                        <li><span class="tag db">db</span> SQL Server database modelled from user-case, ER and class diagrams</li>
+                        <li><span class="tag api">api</span> Admin tools to manage accounts, with every action saved to an audit log</li>
+                        <li><span class="tag ui">ui</span> Web client in HTML, CSS, and JavaScript with a companion character on Home</li>
+                        <li><span class="tag ui">ui</span> .NET MAUI mobile app with daily rewards and push notifications</li>
                     </ul>
+
+                    <div class="arch" aria-label="Web and mobile clients call the ASP.NET Core API, which uses SQL Server">
+                        <div class="node ui"><b>Client</b><br>Web · MAUI</div>
+                        <span class="arrow">→</span>
+                        <div class="node api"><b>Web API</b><br>ASP.NET Core</div>
+                        <span class="arrow">→</span>
+                        <div class="node db"><b>Database</b><br>SQL Server</div>
+                    </div>
                 </div>
 
                 <div class="panel">
